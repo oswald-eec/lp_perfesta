@@ -25,7 +25,8 @@
                     'Tequila Silver',
                     'Whisky Nacional',
                     'Singani Tradicional',
-                    'Licores nacionales'
+                    'Licores nacionales',
+                    'Bebidas sin alcohol'
                 ];
             }
         }
