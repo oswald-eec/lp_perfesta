@@ -130,7 +130,7 @@
                 Escríbenos directamente y te ayudaremos a preparar el cóctel perfecto para tu evento.  
                 ¡Estamos disponibles para atenderte con gusto!
             </p>
-            <a href="https://wa.me/59179327294" target="_blank"
+            <a href="https://wa.me/{{ config('app.whatsapp_number') }}" target="_blank"
                class="inline-block bg-white text-green-700 font-semibold px-8 py-3 rounded-full hover:bg-green-50 active:scale-95 transition-all duration-300">
                 💬 Consultar por WhatsApp
             </a>

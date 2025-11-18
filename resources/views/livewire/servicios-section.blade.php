@@ -163,7 +163,7 @@
                     :class="(paquete === '{{ $s['nombre'] }}' && seleccionado)
                         ? 'bg-green-600 hover:bg-green-700 text-white cursor-pointer'
                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'"
-                    @click="window.open('https://wa.me/59179327294?text=Hola!%20Estoy%20interesado%20en%20el%20' + encodeURIComponent('{{ $s['nombre'] }}') + '%20(' + encodeURIComponent(seleccionado) + ')', '_blank')"
+                    @click="window.open('https://wa.me/{{ config('app.whatsapp_number') }}?text=Hola!%20Estoy%20interesado%20en%20el%20' + encodeURIComponent('{{ $s['nombre'] }}') + '%20(' + encodeURIComponent(seleccionado) + ')', '_blank')"
                     class="w-full rounded-full py-3 font-semibold shadow-md hover:shadow-lg transition-all duration-300">
                      Realizar Pedido
                 </button>
@@ -212,7 +212,7 @@
             Creamos experiencias únicas para cada tipo de celebración. Desde eventos íntimos hasta fiestas masivas, 
             Perfesta convierte cada brindis en un recuerdo inolvidable.  
         </p>
-        <a href="https://wa.me/59179327294" target="_blank"
+        <a href="https://wa.me/{{ config('app.whatsapp_number') }}" target="_blank"
            class="inline-block bg-white text-green-700 font-semibold px-10 py-4 rounded-full hover:bg-green-50 active:scale-95 transition-all duration-300 shadow-lg hover:shadow-2xl">
             💬 Consultar con un asesor
         </a>

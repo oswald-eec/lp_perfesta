@@ -53,8 +53,6 @@ class LandingPage extends Component
 
     public function render()
     {
-        return view('livewire.landing-page', [
-            'mostrarProductos' => $this->mostrarProductos,
-        ]);
+        return view('livewire.landing-page');
     }
 }

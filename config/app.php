@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Per-festa'),
 
     /*
     |--------------------------------------------------------------------------
@@ -83,6 +83,9 @@ return [
     'fallback_locale' => env('APP_FALLBACK_LOCALE', 'en'),
 
     'faker_locale' => env('APP_FAKER_LOCALE', 'en_US'),
+
+    'whatsapp_number' => env('WHATSAPP_NUMBER', '59100000000'),
+
 
     /*
     |--------------------------------------------------------------------------

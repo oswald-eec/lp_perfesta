@@ -27,7 +27,7 @@
     </nav>
 
     {{-- BOTÓN WHATSAPP (izquierda en desktop, visible arriba en móviles) --}}
-    <a href="https://wa.me/59179327294" target="_blank"
+    <a href="https://wa.me/{{ config('app.whatsapp_number') }}" target="_blank"
        class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium px-4 py-2 rounded-full shadow hover:shadow-xl transition-all duration-300 ease-out">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 .06 5.31.06 11.92c0 

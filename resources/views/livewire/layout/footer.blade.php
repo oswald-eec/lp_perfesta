@@ -19,7 +19,7 @@
                         Cócteles artesanales bolivianos hechos con pasión, sabor e innovación.  
                         Perfesta lleva la experiencia del bar directamente a tu hogar.
                     </p>
-                    <a href="https://wa.me/59179327294" target="_blank"
+                    <a href="https://wa.me/{{ config('app.whatsapp_number') }}" target="_blank"
                     class="inline-flex items-center gap-2 bg-yellow-400 text-green-900 px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-yellow-300 hover:scale-105 hover:shadow-lg transition-all duration-300">
                         {{-- Icono WhatsApp --}}
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -34,9 +34,9 @@
                     <h5 class="text-white font-semibold text-lg mb-5 border-b border-green-700 pb-2">Productos</h5>
                     <ul class="space-y-3 text-sm text-green-200">
                         <li class="hover:text-yellow-400 transition-colors duration-300">Mojito Clásico</li>
-                        <li class="hover:text-yellow-400 transition-colors duration-300">Piña Colada Premium</li>
-                        <li class="hover:text-yellow-400 transition-colors duration-300">Daiquiri de Fresa</li>
-                        <li class="hover:text-yellow-400 transition-colors duration-300">Margarita Clásica</li>
+                        <li class="hover:text-yellow-400 transition-colors duration-300">Piña Colada </li>
+                        <li class="hover:text-yellow-400 transition-colors duration-300">Khalua</li>
+                        <li class="hover:text-yellow-400 transition-colors duration-300">Coctel Radiactivo</li>
                     </ul>
                 </div>
 
@@ -47,7 +47,7 @@
                         <li class="hover:text-yellow-400 transition-colors duration-300">Matrimonios</li>
                         <li class="hover:text-yellow-400 transition-colors duration-300">Bautizos</li>
                         <li class="hover:text-yellow-400 transition-colors duration-300">Quinceañeros</li>
-                        <li class="hover:text-yellow-400 transition-colors duration-300">Eventos Corporativos</li>
+                        <li class="hover:text-yellow-400 transition-colors duration-300">Conciertos y Eventos Corporativos</li>
                     </ul>
                 </div>
 
@@ -60,7 +60,7 @@
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2 5a11 11 0 0011 11v3a1 1 0 001.447.894l3-1.5a1 1 0 00.553-.894V16a11 11 0 00-11-11H3a1 1 0 00-1 1z"/>
                             </svg>
-                            +591 79327294
+                            +591 72792260
                         </li>
                         <li class="flex items-center gap-3">
                             {{-- Email --}}

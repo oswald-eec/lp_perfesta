@@ -92,7 +92,7 @@
 
             {{-- Botones de acción --}}
             <div class="mt-8 flex flex-col sm:flex-row gap-4">
-                <a :href="'https://wa.me/59179327294?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20' + encodeURIComponent('{{ $producto['nombre'] }}') + '%20-%20Presentación:%20' + presentacion + '%20Cantidad:%20' + cantidad + '%20Total:%20Bs%20' + total"
+                <a :href="'https://wa.me/{{ config('app.whatsapp_number') }}?text=Hola!%20Quiero%20hacer%20un%20pedido%20de%20' + encodeURIComponent('{{ $producto['nombre'] }}') + '%20-%20Presentación:%20' + presentacion + '%20Cantidad:%20' + cantidad + '%20Total:%20Bs%20' + total"
                    target="_blank"
                    class="flex items-center justify-center gap-2 bg-yellow-400 hover:bg-yellow-300 text-green-900 font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

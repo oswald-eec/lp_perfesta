@@ -61,7 +61,7 @@
 
                     {{-- BOTÓN DE PEDIDO --}}
                     <div>
-                        <a href="https://wa.me/59179327294?text=Hola!%20Quiero%20más%20información%20sobre%20la%20oferta%20{{ urlencode($oferta['titulo']) }}"
+                        <a href="https://wa.me/{{ config('app.whatsapp_number') }}?text=Hola!%20Quiero%20más%20información%20sobre%20la%20oferta%20{{ urlencode($oferta['titulo']) }}"
                            target="_blank"
                            class="inline-flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-semibold px-8 py-3 rounded-full shadow-md hover:shadow-xl transition-all duration-300">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

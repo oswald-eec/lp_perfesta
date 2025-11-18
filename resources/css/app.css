@@ -13,3 +13,12 @@
 html {
   scroll-behavior: smooth;
 }
+
+@font-face {
+    font-family: "Tropical Orange";
+    src: url("/fonts/tropical-orange/TropicalOrange.ttf") format("truetype"),
+         url("/fonts/tropical-orange/TropicalOrange.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+

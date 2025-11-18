@@ -1,94 +1,92 @@
-{{-- LANDING PAGE MEJORADA CON CARRUSEL Y MENÚ RESPONSIVO --}}
+{{-- LANDING PAGE MEJORADA --}}
 <div>
-    @if ($seccion === 'inicio')
-        <section 
-            id="hero" 
-            x-data="{ currentSlide: 0, slides: ['bg-perfesta.jpg', 'bg-perfesta2.jpg', 'bg-perfesta3.jpg'], openMenu: false }"
-            x-init="setInterval(() => currentSlide = (currentSlide + 1) % slides.length, 5000)"
-            class="relative w-full h-screen flex flex-col justify-between bg-black text-white overflow-hidden">
+    <section 
+        id="hero" 
+        x-data="{ 
+            currentSlide: 0, 
+            slides: ['bg-perfesta.jpg', 'bg-perfesta2.jpg', 'bg-perfesta3.jpg'], 
+            openMenu: false 
+        }"
+        x-init="setInterval(() => currentSlide = (currentSlide + 1) % slides.length, 5000)"
+        class="relative w-full h-screen flex flex-col justify-between bg-black text-white overflow-hidden">
 
-            {{-- BACKGROUND CAROUSEL --}}
-            <template x-for="(slide, index) in slides" :key="index">
-                <div x-show="currentSlide === index"
-                    x-transition:enter="transition-opacity ease-out duration-1000"
-                    x-transition:enter-start="opacity-0"
-                    x-transition:enter-end="opacity-100"
-                    class="absolute inset-0 w-full h-full">
-                    <img :src="'/images/' + slide" alt="Fondo Perfesta" class="w-full h-full object-cover object-center">
-                    <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/70 to-green-900/80"></div>
-                </div>
-            </template>
+        {{-- BACKGROUND CAROUSEL --}}
+        <template x-for="(slide, index) in slides" :key="index">
+            <div 
+                x-show="currentSlide === index"
+                x-transition:enter="transition-opacity ease-out duration-1000"
+                x-transition:enter-start="opacity-0"
+                x-transition:enter-end="opacity-100"
+                class="absolute inset-0 w-full h-full">
 
-            {{-- HEADER --}}
-            <header 
-                class="relative z-20 flex justify-between items-center px-6 md:px-16 py-4"
-                x-data="{ openMenu: false }">
+                <img :src="'/images/' + slide" 
+                     alt="Fondo Perfesta" 
+                     class="w-full h-full object-cover object-center">
 
-                {{-- ENLACE "INICIO" (solo visible en escritorio) --}}
-                <a href="{{ url('/inicio') }}" 
+                <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/70 to-green-900/80"></div>
+            </div>
+        </template>
+
+        {{-- HEADER --}}
+        <header class="relative z-20 flex justify-between items-center px-6 md:px-16 py-4">
+
+            {{-- INICIO --}}
+            <a href="{{ url('/inicio') }}" 
                 class="hidden md:inline-block text-lg font-semibold hover:text-yellow-400 transition-all">
-                    
-                    Inicio
-                </a>
+                Inicio
+            </a>
 
-                {{-- ENLACE CENTRAL - PLAYLIST PERFESTA --}}
-                <a href="https://www.youtube.com/playlist?list=YOUR_PLAYLIST_ID" 
-                target="_blank"
-                class="flex items-center gap-2 text-lg font-semibold hover:text-yellow-400 transition-all">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6">
-                        <path d="M10 9.04v5.92L15 12l-5-2.96zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 
-                        10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 
-                        8-8 8 3.59 8 8-3.59 8-8 8z"/>
-                    </svg>
-                    Playlist Perfesta
-                </a>
+            {{-- PLAYLIST --}}
+            <a href="https://www.youtube.com/playlist?list=YOUR_PLAYLIST_ID" 
+               target="_blank"
+               class="flex items-center gap-2 text-lg font-semibold hover:text-yellow-400 transition-all">
+                <x-icons.play class="w-6 h-6"/>
+                Playlist Perfesta
+            </a>
 
-                {{-- BOTÓN WHATSAPP (izquierda en desktop y móvil) --}}
-                <a href="https://wa.me/59179327294" 
+            {{-- WHATSAPP --}}
+            <a href="https://wa.me/{{ config('app.whatsapp_number') }}"
                 target="_blank"
                 class="flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium px-4 py-2 rounded-full shadow hover:shadow-xl transition-all duration-300 ease-out">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.52 3.48A11.93 11.93 0 0 0 12 0C5.37 0 .06 5.31.06 11.92c0 
-                        2.1.55 4.15 1.6 5.97L0 24l6.33-1.67a11.93 11.93 0 0 0 5.67 
-                        1.45h.01c6.63 0 11.94-5.31 11.94-11.92a11.93 11.93 0 0 0-3.43-8.38z"/>
-                    </svg>
-                    <span class="hidden md:inline">WhatsApp</span>
+                <x-icons.whatsapp class="w-5 h-5"/>
+                <span class="hidden md:inline">WhatsApp</span>
+            </a>
+
+            {{-- HAMBURGER --}}
+            <button @click="openMenu = !openMenu" class="md:hidden text-white focus:outline-none">
+                <x-icons.menu class="w-8 h-8"/>
+            </button>
+
+            {{-- MENU MOVIL --}}
+            <div x-show="openMenu" 
+                x-transition
+                class="absolute top-16 left-0 w-full bg-black/85 backdrop-blur-md py-4 flex flex-col items-center space-y-3 md:hidden z-30">
+                <a href="{{ url('/inicio') }}" 
+                   class="text-white text-lg font-semibold hover:text-yellow-400 transition-all">
+                    Inicio
                 </a>
+            </div>
+        </header>
 
-                {{-- ICONO HAMBURGER (solo en móvil) --}}
-                <button @click="openMenu = !openMenu" 
-                        class="md:hidden text-white focus:outline-none">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
+        {{-- HERO CONTENT --}}
+        <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 mt-6 md:mt-10 flex-grow">
 
-                {{-- MENÚ DESPLEGABLE (MÓVIL) --}}
-                <div x-show="openMenu" 
-                    x-transition
-                    class="absolute top-16 left-0 w-full bg-black/85 backdrop-blur-md py-4 flex flex-col items-center space-y-3 md:hidden z-30">
-                    <a href="{{ url('/inicio') }}" class="text-white text-lg font-semibold hover:text-yellow-400 transition-all">Inicio</a>
-                    <a href="https://www.youtube.com/playlist?list=YOUR_PLAYLIST_ID" 
-                    target="_blank"
-                    class="text-white text-lg font-semibold hover:text-yellow-400 transition-all">Playlist Perfesta</a>
-                </div>
-            </header>
-
-            {{-- HERO CONTENT --}}
-            <div class="relative z-10 flex flex-col items-center justify-center text-center px-6 mt-6 md:mt-10 flex-grow">
-                <img src="{{ asset('images/logo-perfesta.png') }}" 
+            <img src="{{ asset('images/logo-perfesta.png') }}" 
                     alt="Logo Perfesta"
                     class="w-28 h-28 md:w-36 md:h-36 rounded-full object-contain mb-6 drop-shadow-xl hover:drop-shadow-[0_0_25px_rgba(255,255,255,0.8)] transition-all duration-500 ease-out">
 
-                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight font-[Montserrat Alternates] text-white drop-shadow-lg">
-                    Per-festa
-                </h1>
-                <p class="mt-3 text-lg md:text-xl text-yellow-300 font-semibold">Sabor e Innovación</p>
-                <p class="mt-6 text-2xl md:text-3xl font-semibold text-white max-w-3xl leading-tight italic">
-                    “Llevamos la fiesta donde estés tú”
-                </p>
+            <h1 class="font-[Roboto Mono] text-5xl md:text-7xl font-extrabold tracking-tight text-white drop-shadow-lg">
+                Per-festa
+            </h1>
 
-                {{-- BOTONES DE NAVEGACIÓN --}}
+            <p class="mt-3 text-lg md:text-xl text-yellow-300 font-semibold">Sabor e Innovación</p>
+
+            <p class="mt-6 text-2xl md:text-3xl font-semibold text-white max-w-3xl leading-tight italic">
+                “Llevamos la fiesta donde estés tú”
+            </p>
+
+
+            {{-- BOTONES DE NAVEGACIÓN --}}
                 <div class="flex flex-col md:flex-row justify-center items-center gap-4 mt-10 mb-10 w-full max-w-md">
                     <a href="{{ route('productos') }}"
                     class="w-full md:w-auto bg-green-500 text-white text-lg font-semibold px-8 py-3 rounded-full 
@@ -110,22 +108,18 @@
                     </a>
                 </div>
 
-                {{-- FRASE LEGAL (ahora siempre visible) --}}
-                <div class="pb-6">
-                    <p class="text-base text-white/80 max-w-lg leading-snug">
-                        El consumo excesivo de alcohol es dañino para la salud.<br>
-                        Venta prohibida a menores de edad.
-                    </p>
-                </div>
+            {{-- FRASE LEGAL --}}
+            <div class="pb-6">
+                <p class="text-base text-white/80 max-w-lg leading-snug">
+                    El consumo excesivo de alcohol es dañino para la salud.<br>
+                    Venta prohibida a menores de edad.
+                </p>
             </div>
-        </section>
-    @elseif ($seccion === 'productos')
-        @livewire('productos-section')
-    @elseif ($seccion === 'ofertas')
-        @livewire('ofertas-section')
-    @endif
+        </div>
+    </section>
 </div>
 
+@push('scripts')
 <script>
 document.addEventListener('scrollToHero', () => {
     const hero = document.getElementById('hero');
@@ -134,3 +128,4 @@ document.addEventListener('scrollToHero', () => {
     }
 });
 </script>
+@endpush
